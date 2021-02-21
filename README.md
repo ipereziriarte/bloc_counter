@@ -13,8 +13,8 @@ Second, install the [PubSpec assist plugin for vscode](https://marketplace.visua
 
 And add the recommended bloc_test and flutter test extensions.
 
-Finally run the tests either from the editor or on the terminal with `pub run test`
+Finally run the tests either from the editor or on the terminal with `pub run test` if that doesn't work run `flutter test path_to_file.dart`. I.e: `flutter test test/cubit/counter_cubit_test.dart`
 
-You can get more info about flutter testing at [flutter test docs](https://pub.dev/packages/test#running-tests)
+You can get more info about flutter testing at [flutter test docs](https://pub.dev/packages/test#running-tests) and [here](https://flutter.dev/docs/cookbook/testing/unit/introduction)
 
 
