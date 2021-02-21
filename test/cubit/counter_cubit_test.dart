@@ -1,9 +1,7 @@
-import 'dart:html';
-
 import 'package:counter_app/cubit/counter_cubit.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-void main(List<String> args) {
+void main() {
   group('CounterCubit', () {
     CounterCubit counterCubit;
 
