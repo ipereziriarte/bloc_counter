@@ -35,6 +35,7 @@ class _SecondScreenState extends State<SecondScreen> {
           // Here we take the value from the MyHomePage object that was created by
           // the App.build method, and use it to set our appbar title.
           title: Text(widget.title),
+          backgroundColor: widget.color,
         ),
         body: BlocListener<CounterCubit, CounterState>(
           listener: (context, state) {
@@ -71,31 +72,25 @@ class _SecondScreenState extends State<SecondScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     FloatingActionButton(
+                      backgroundColor: widget.color,
                       onPressed: () {
                         BlocProvider.of<CounterCubit>(context).decrement();
                       },
                       tooltip: 'Decrement',
                       child: Icon(Icons.remove),
-                      heroTag: "decrement2",
+                      heroTag: "decrement",
                     ),
                     FloatingActionButton(
+                      backgroundColor: widget.color,
                       onPressed: () {
                         BlocProvider.of<CounterCubit>(context).increment();
                       },
                       tooltip: 'Increment',
                       child: Icon(Icons.add),
-                      heroTag: "increment2",
+                      heroTag: "increment",
                     ),
                   ],
                 ),
-                SizedBox(
-                  height: 24,
-                ),
-                MaterialButton(
-                  color: widget.color,
-                  onPressed: () {},
-                  child: Text('Go to Second Screen'),
-                )
               ],
             ),
           ),

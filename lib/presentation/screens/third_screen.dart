@@ -3,8 +3,8 @@ import 'package:counter_app/presentation/screens/second_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class HomeScreen extends StatefulWidget {
-  HomeScreen({Key key, this.title, this.color}) : super(key: key);
+class ThirdScreen extends StatefulWidget {
+  ThirdScreen({Key key, this.title, this.color}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -19,10 +19,10 @@ class HomeScreen extends StatefulWidget {
   final Color color;
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _ThirdScreenState createState() => _ThirdScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _ThirdScreenState extends State<ThirdScreen> {
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -73,6 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     FloatingActionButton(
+                      backgroundColor: widget.color,
                       onPressed: () {
                         BlocProvider.of<CounterCubit>(context).decrement();
                       },
@@ -81,6 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       heroTag: "decrement",
                     ),
                     FloatingActionButton(
+                      backgroundColor: widget.color,
                       onPressed: () {
                         BlocProvider.of<CounterCubit>(context).increment();
                       },
@@ -90,32 +92,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
-                SizedBox(
-                  height: 24,
-                ),
-                MaterialButton(
-                  color: Colors.redAccent,
-                  onPressed: () {
-                    Navigator.of(context).pushNamed('/second');
-                  },
-                  child: Text(
-                    'Go to Second Screen',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-                SizedBox(
-                  height: 24,
-                ),
-                MaterialButton(
-                  color: Colors.greenAccent,
-                  onPressed: () {
-                    Navigator.of(context).pushNamed('/third');
-                  },
-                  child: Text(
-                    'Go to Third Screen',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                )
               ],
             ),
           ),
