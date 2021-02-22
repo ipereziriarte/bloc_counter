@@ -1,4 +1,5 @@
 import 'package:counter_app/domain/cubits/counter_cubit.dart';
+import 'package:counter_app/presentation/router/app_router.dart';
 import 'package:counter_app/presentation/screens/home_screen.dart';
 import 'package:counter_app/presentation/screens/second_screen.dart';
 import 'package:counter_app/presentation/screens/third_screen.dart';
@@ -16,7 +17,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final CounterCubit _counterCubit = CounterCubit();
+  final AppRouter _appRouter = AppRouter();
 
   @override
   Widget build(BuildContext context) {
@@ -26,32 +27,13 @@ class _MyAppState extends State<MyApp> {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      routes: {
-        '/': (context) => BlocProvider.value(
-              value: _counterCubit,
-              child: HomeScreen(title: 'HomeScreen', color: Colors.blueAccent),
-            ),
-        '/second': (context) => BlocProvider.value(
-              value: _counterCubit,
-              child: SecondScreen(
-                title: 'Second',
-                color: Colors.redAccent,
-              ),
-            ),
-        '/third': (context) => BlocProvider.value(
-              value: _counterCubit,
-              child: ThirdScreen(
-                title: 'Third',
-                color: Colors.greenAccent,
-              ),
-            )
-      },
+      onGenerateRoute: _appRouter.onGenerateRoute,
     );
   }
 
   @override
   void dispose() {
-    _counterCubit.close();
+    _appRouter.dispose();
     super.dispose();
   }
 }
